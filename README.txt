@@ -1,0 +1,1 @@
+Mettez vos images dans le dossier 'assets' (ex: image_3.png) et ouvrez index.html.

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balenciaga - Track.2 Sneaker</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            letter-spacing: 0.5px;
+        }
+        body {
+            background-color: #ffffff;
+            color: #000;
+            padding: 0 40px;
+        }
+        /* Header Net et Minimaliste façon Balenciaga */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            border-bottom: 1px solid #000;
+            margin-bottom: 25px;
+        }
+        .nav-left {
+            display: flex;
+            gap: 25px;
+        }
+        .nav-left a {
+            text-decoration: none;
+            color: #000;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+        .nav-right {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        /* Corps Principal Produit */
+        .product-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+            align-items: start;
+        }
+        .main-image-container {
+            background-color: #ececee;
+            width: 100%;
+            height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .main-image-container img {
+            width: 85%;
+            object-fit: contain;
+        }
+
+        .product-details {
+            padding-top: 10px;
+        }
+        .product-title {
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .product-price {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        .product-desc {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* Sélecteurs */
+        .section-title-label {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .size-dropdown {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #000;
+            background: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%20"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg"%20width%3D%20"292.4"%20height%3D%20"292.4"%3E%3Cpath%20fill%3D%20"%23000000"%20d%3D%20"M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z"%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px top 50%;
+            background-size: 10px auto;
+            cursor: pointer;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            border: 1px solid #000;
+            width: 120px;
+            margin-bottom: 25px;
+        }
+        .quantity-selector button {
+            background: none;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .quantity-selector span {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .btn-add {
+            background: #000;
+            color: #fff;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .btn-add:hover {
+            background: #333;
+        }
+
+        .wishlist {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section You May Also Like */
+        .recommendation-title {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 800;
+            margin: 50px 0 30px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .grid-products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+        .product-card {
+            text-align: center;
+        }
+        .product-card-img {
+            background-color: #ececee;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        .product-card-img img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+        }
+        .card-title {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .card-price {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #ddd;
+            padding: 40px 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            font-size: 12px;
+            color: #444;
+            line-height: 1.8;
+        }
+        footer h4 {
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-left">
+            <a href="#">MEN</a>
+            <a href="#">WOMEN</a>
+            <a href="#">COLLECTIONS</a>
+        </div>
+        <div class="logo">BALENCIAGA</div>
+        <div class="nav-right">
+            <span>Search</span>
+            <span>Account</span>
+            <span>Cart (0)</span>
+        </div>
+    </header>
+
+    <div class="product-section">
+        <div class="main-image-container">
+            <!-- Image principale basée sur la photo fournie -->
+            <img src="assets/image_3.png" alt="Balenciaga Track.2 Sneaker">
+        </div>
+        <div class="product-details">
+            <div class="product-title">Balenciaga Track.2 Sneaker - Black/Grey Gradient</div>
+            <div class="product-price">$140</div>
+            <div class="product-desc">
+                Balenciaga track.2 sneaker - black/greys gradient gradient. Selects come a bar hole and waikt to do Some balenciaga bensluites to the sale affective desscription.
+            </div>
+
+            <div class="section-title-label">Size</div>
+            <select class="size-dropdown">
+                <option>SELECT SIZE (EU)</option>
+                <option>37 EU / 4US</option>
+                <option>38 EU / 5US</option>
+                <option>39 EU / 6US</option>
+                <option>40 EU / 7US</option>
+                <option>41 EU / 8US</option>
+                <option>42 EU / 9US</option>
+                <option>43 EU / 10US</option>
+                <option>44 EU / 11US</option>
+            </select>
+
+            <div class="section-title-label">Quantity</div>
+            <div class="quantity-selector">
+                <button>-</button>
+                <span>1</span>
+                <button>+</button>
+            </div>
+
+            <button class="btn-add">Add to Cart</button>
+            <div class="wishlist">♡ Wishlist</div>
+        </div>
+    </div>
+
+    <div class="recommendation-title">You May Also Like</div>
+    <div class="grid-products">
+        <div class="product-card">
+            <div class="product-card-img">
+                <img src="assets/track2_white.png" alt="Track.2 White" onerror="this.src='assets/image_3.png'">
+            </div>
+            <div class="card-title">TRACK.2</div>
+            <div class="card-price">$140.00</div>
+        </div>
+        <div class="product-card">
+            <div class="product-card-img">
+                <img src="assets/triple_s.png" alt="Triple-S" onerror="this.src='assets/image_3.png'">
+            </div>
+            <div class="card-title">TRIPLE-S</div>
+            <div class="card-price">$140.90</div>
+        </div>
+        <div class="product-card">
+            <div class="product-card-img">
+                <img src="assets/track_hike.png" alt="Track Hike" onerror="this.src='assets/image_3.png'">
+            </div>
+            <div class="card-title">TRACK HIKE</div>
+            <div class="card-price">$140.00</div>
+        </div>
+        <div class="product-card">
+            <div class="product-card-img">
+                <img src="assets/track1_red.png" alt="Track.1 Red" onerror="this.src='assets/image_3.png'">
+            </div>
+            <div class="card-title">TRACK.1</div>
+            <div class="card-price">$140.00</div>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <h4>Customer Care</h4>
+            <p>Contact Us</p>
+            <p>Delivery & Returns</p>
+            <p>Track Order</p>
+        </div>
+        <div>
+            <h4>About Us</h4>
+            <p>Store Locator</p>
+            <p>Sustainability</p>
+            <p>Careers</p>
+        </div>
+        <div>
+            <h4>Legal</h4>
+            <p>Privacy Policy</p>
+            <p>Terms & Conditions</p>
+        </div>
+    </footer>
+
+</body>
+</html>
